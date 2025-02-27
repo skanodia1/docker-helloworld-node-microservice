@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_skanodia1_docker_helloworld_node_microservice_1740699303910-push-trigger-input-set
+  identifier: Build_skanodia1_docker_helloworld_node_microservice_1740699303910pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: default_project
+  pipeline:
+    identifier: Build_skanodia1_docker_helloworld_node_microservice_1740699303910
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
