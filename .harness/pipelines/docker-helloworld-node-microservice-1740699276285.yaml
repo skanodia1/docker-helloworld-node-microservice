@@ -35,7 +35,7 @@ pipeline:
                     connectorRef: account.GCP_Test_Connector
                     host: us-west2-docker.pkg.dev
                     projectID: focal-plateau-451819-i9/harness-excercise-ar
-                    imageName: helloworld-node-microservice
+                    imageName: <+input>
                     tags:
                       - latest
                     caching: true
