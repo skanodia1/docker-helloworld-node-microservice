@@ -35,7 +35,7 @@ pipeline:
                       spec:
                         connectorRef: account.GCP_Test_Connector
                         host: us-west2-docker.pkg.dev
-                        projectID: focal-plateau-451819-i9/harness-excercise-ar
+                        projectID: focal-plateau-451819-i9/qa-harness-exercise
                         imageName: <+input>
                         tags:
                           - latest
