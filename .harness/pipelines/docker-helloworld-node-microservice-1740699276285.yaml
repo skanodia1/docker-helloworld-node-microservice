@@ -27,18 +27,30 @@ pipeline:
                     command: npm install
                   timeout: ""
                   type: Run
-              - step:
-                  type: BuildAndPushGAR
-                  name: BuildAndPushGAR_1
-                  identifier: BuildAndPushGAR_1
-                  spec:
-                    connectorRef: account.GCP_Test_Connector
-                    host: us-west2-docker.pkg.dev
-                    projectID: focal-plateau-451819-i9/harness-excercise-ar
-                    imageName: <+input>
-                    tags:
-                      - latest
-                    caching: true
+              - parallel:
+                  - step:
+                      type: BuildAndPushGAR
+                      name: BuildAndPushGAR_1
+                      identifier: BuildAndPushGAR_1
+                      spec:
+                        connectorRef: account.GCP_Test_Connector
+                        host: us-west2-docker.pkg.dev
+                        projectID: focal-plateau-451819-i9/harness-excercise-ar
+                        imageName: <+input>
+                        tags:
+                          - latest
+                        caching: true
+                  - step:
+                      type: BuildAndPushGAR
+                      name: BuildAndPushGAR_2
+                      identifier: BuildAndPushGAR_2
+                      spec:
+                        connectorRef: account.GCP_Test_Connector
+                        host: us-west2-docker.pkg.dev
+                        projectID: focal-plateau-451819-i9/prod-harness-exercise
+                        imageName: <+input>
+                        tags:
+                          - latest
               - parallel:
                   - step:
                       type: Owasp
