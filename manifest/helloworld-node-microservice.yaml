@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: helloworld-container
-          image: <+artifact.image> #us-west2-docker.pkg.dev/focal-plateau-451819-i9/qa-harness-exercise/helloworld-node-microservice:latest # Replace latest with your tag strategy.
+          #image: <+artifact.image> #us-west2-docker.pkg.dev/focal-plateau-451819-i9/qa-harness-exercise/helloworld-node-microservice:latest # Replace latest with your tag strategy.
           ports:
             - containerPort: 3000
           resources:
