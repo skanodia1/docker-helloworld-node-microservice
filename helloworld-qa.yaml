@@ -4,16 +4,16 @@ metadata:
   name: helloworld-qa-deployment
   namespace: qa-namespace
   labels:
-    app: helloworld-qa
+    app: helloworld-node-microservice
 spec:
-  replicas: 2 # Adjust as needed for QA
+  replicas: 1 # Adjust as needed for QA
   selector:
     matchLabels:
-      app: helloworld-qa
+      app: helloworld-node-microservice
   template:
     metadata:
       labels:
-        app: helloworld-qa
+        app: helloworld-node-microservice
     spec:
       containers:
         - name: helloworld-container
@@ -31,12 +31,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: helloworld-qa-service
+  name: helloworld-node-microservice
   namespace: qa-namespace
 spec:
   type: ClusterIP # Or LoadBalancer if you need external access in QA
   selector:
-    app: helloworld-qa
+    app: helloworld-node-microservice
   ports:
     - protocol: TCP
       port: 80
