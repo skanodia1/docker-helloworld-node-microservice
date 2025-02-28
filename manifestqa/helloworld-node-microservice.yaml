@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-qa-deployment
+  namespace: qa-namespace
+  labels:
+    app: helloworld-node-microservice
+spec:
+  replicas: 1 # Adjust as needed for QA
+  selector:
+    matchLabels:
+      app: helloworld-node-microservice
+  template:
+    metadata:
+      labels:
+        app: helloworld-node-microservice
+    spec:
+      containers:
+        - name: helloworld-container
+          image: us-west2-docker.pkg.dev/focal-plateau-451819-i9/prod-harness-exercise/helloworld-node-microservice:latest # Replace latest with your tag strategy.
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: '100m'
+              memory: '128Mi'
+            limits:
+              cpu: '250m'
+              memory: '256Mi'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-node-microservice
+  namespace: qa-namespace
+spec:
+  type: ClusterIP # Or LoadBalancer if you need external access in QA
+  selector:
+    app: helloworld-node-microservice
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
