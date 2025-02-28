@@ -36,7 +36,7 @@ pipeline:
                     projectID: focal-plateau-451819-i9/harness-excercise-ar
                     imageName: test
                     tags:
-                      - test1tag
+                      - master
                     caching: true
           platform:
             os: Linux
