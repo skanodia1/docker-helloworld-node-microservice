@@ -33,10 +33,10 @@ pipeline:
                   spec:
                     connectorRef: account.GCP_Test_Connector
                     host: https://us-west2-docker.pkg.dev/
-                    projectID: focal-plateau-451819-i9/harness-excercise-ar
-                    imageName: test
+                    projectID: focal-plateau-451819-i9
+                    imageName: harness-excercise-ar
                     tags:
-                      - master
+                      - latest
                     caching: true
           platform:
             os: Linux
