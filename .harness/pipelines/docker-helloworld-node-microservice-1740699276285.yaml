@@ -27,17 +27,6 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
-                  identifier: dockerbuild
-                  name: docker_build
-                  spec:
-                    caching: true
-                    connectorRef: <+input>
-                    repo: hello/world
-                    tags:
-                      - latest
-                  timeout: ""
-                  type: BuildAndPushDockerRegistry
-              - step:
                   type: BuildAndPushGAR
                   name: BuildAndPushGAR_1
                   identifier: BuildAndPushGAR_1
@@ -56,3 +45,4 @@ pipeline:
             type: Cloud
             spec: {}
         type: CI
+        description: ""
