@@ -1,6 +1,6 @@
 pipeline:
   identifier: Build_skanodia1_docker_helloworld_node_microservice_1740699303910
-  name: Build harness-exercise
+  name: CI harness-exercise
   orgIdentifier: default
   projectIdentifier: default_project
   properties:
