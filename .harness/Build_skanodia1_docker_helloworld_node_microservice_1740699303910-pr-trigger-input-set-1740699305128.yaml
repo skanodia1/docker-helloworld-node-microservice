@@ -1,5 +1,6 @@
 inputSet:
-  name: Build_skanodia1_docker_helloworld_node_microservice_1740699303910-pr-trigger-input-set
+  name: pr-trigger_docker_helloworld_node_microservice_1740699303910-input-set
+  tags: {}
   identifier: Build_skanodia1_docker_helloworld_node_microservice_1740699303910prtriggerinputset
   orgIdentifier: default
   projectIdentifier: default_project
@@ -12,3 +13,15 @@ inputSet:
             type: PR
             spec:
               number: <+trigger.prNumber>
+    stages:
+      - stage:
+          identifier: build
+          type: CI
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: BuildAndPushGAR_1
+                    type: BuildAndPushGAR
+                    spec:
+                      imageName: <+input>
