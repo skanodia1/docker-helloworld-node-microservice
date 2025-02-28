@@ -20,8 +20,14 @@ inputSet:
           spec:
             execution:
               steps:
-                - step:
-                    identifier: BuildAndPushGAR_1
-                    type: BuildAndPushGAR
-                    spec:
-                      imageName: <+input>
+                - parallel:
+                    - step:
+                        identifier: BuildAndPushGAR_1
+                        type: BuildAndPushGAR
+                        spec:
+                          imageName: helloworld-node-microservice
+                    - step:
+                        identifier: BuildAndPushGAR_2
+                        type: BuildAndPushGAR
+                        spec:
+                          imageName: helloworld-node-microservice
