@@ -51,6 +51,7 @@ pipeline:
                         imageName: <+input>
                         tags:
                           - latest
+                        caching: true
               - parallel:
                   - step:
                       type: Owasp
