@@ -37,10 +37,22 @@ pipeline:
                       - latest
                   timeout: ""
                   type: BuildAndPushDockerRegistry
+              - step:
+                  type: BuildAndPushGAR
+                  name: BuildAndPushGAR_1
+                  identifier: BuildAndPushGAR_1
+                  spec:
+                    connectorRef: account.GCP_Test_Connector
+                    host: https://us-west2-docker.pkg.dev/
+                    projectID: focal-plateau-451819-i9/harness-excercise-ar
+                    imageName: test
+                    tags:
+                      - test1tag
+                    caching: true
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
