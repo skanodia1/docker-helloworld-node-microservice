@@ -32,7 +32,7 @@ pipeline:
                   identifier: BuildAndPushGAR_1
                   spec:
                     connectorRef: account.GCP_Test_Connector
-                    host: https://us-west2-docker.pkg.dev/
+                    host: us-west2-docker.pkg.dev
                     projectID: focal-plateau-451819-i9/harness-excercise-ar
                     imageName: helloworld-node-microservice
                     tags:
